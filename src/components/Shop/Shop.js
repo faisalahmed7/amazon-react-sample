@@ -1,8 +1,9 @@
 
+import { Link } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
 import Product from '../../Product/Product';
-import { addToDb} from '../../utilities/fakedb';
+import { addToDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import './Shop.css'
 const Shop = () => {
@@ -10,7 +11,7 @@ const Shop = () => {
     const [cart, setCart] = useCart(products)
 
 
-    
+
 
     const handleCart = (product) => {
 
@@ -20,10 +21,10 @@ const Shop = () => {
             product.quantity = 1;
             newCart = [...cart, product]
         }
-        else{
-            const rest=cart.filter(pd=> pd.id!== product.id)
-            exist.quantity=exist.quantity+1;
-            newCart=[...rest, exist]
+        else {
+            const rest = cart.filter(pd => pd.id !== product.id)
+            exist.quantity = exist.quantity + 1;
+            newCart = [...rest, exist]
         }
 
 
@@ -43,7 +44,9 @@ const Shop = () => {
 
             <div className="cart-container">
                 <Cart cart={cart}></Cart>
-
+                <Link to='/orders'>
+                    <button style={{marginLeft:'50px', padding:'10px'}}>Review Orders</button>
+                </Link>
             </div>
         </div>
     );
