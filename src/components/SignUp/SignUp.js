@@ -40,7 +40,7 @@ const SignUp = () => {
             setError("password must be in 8 characters or more")
             return
         }
-        createUserWithEmailAndPassword(email, password, sendEmailVerification)
+        createUserWithEmailAndPassword(email, password)
     }
 
     return (
